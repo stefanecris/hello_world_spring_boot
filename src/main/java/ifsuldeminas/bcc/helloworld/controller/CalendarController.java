@@ -15,10 +15,6 @@ public class CalendarController {
 
     @GetMapping("today")
     public String today() {
-        // Calendar date = Calendar.getInstance();
-        // int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
-        // int month = date.get(Calendar.MONTH) + 1;
-        // int year = date.get(Calendar.YEAR);
         Date today = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
         String formattedDate = simpleDateFormat.format(today);
@@ -27,10 +23,6 @@ public class CalendarController {
 
     @GetMapping ("tomorrow")
     public String tomorrow() {
-        // Calendar date = Calendar.getInstance();
-        // int dayOfMonth = date.get(Calendar.DAY_OF_MONTH) + 1;
-        // int month = date.get(Calendar.MONTH) + 1;
-        // int year = date.get(Calendar.YEAR);
         GregorianCalendar tomorrow = new GregorianCalendar();
         tomorrow.roll(Calendar.DAY_OF_MONTH, 1);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
