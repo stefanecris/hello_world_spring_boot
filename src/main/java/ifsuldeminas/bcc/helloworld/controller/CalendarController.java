@@ -13,6 +13,15 @@ import java.util.GregorianCalendar;
 @RequestMapping("/calendar") // Todos os métodos dessa classe tratam requisições do tipo /calendar/algumaCoisa
 public class CalendarController {
 
+    @GetMapping("yesterday")
+    public String yesterday() {
+        GregorianCalendar yesterday = new GregorianCalendar();
+        yesterday.roll(Calendar.DAY_OF_MONTH, -1);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = simpleDateFormat.format(yesterday.getTime());
+        return "Ontem foi " + formattedDate;
+    }
+
     @GetMapping("today")
     public String today() {
         Date today = new Date();
